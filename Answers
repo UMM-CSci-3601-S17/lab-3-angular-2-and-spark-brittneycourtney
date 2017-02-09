@@ -1,0 +1,10 @@
+Answers
+
+1) Lines that start with # are comments, There's a note for if you work in C.
+    One in Client, one in server, one in the Lab
+
+2) Be have a build for both the server and for the client, and one for both, so we don't have to restart the server each time we make a change.
+
+3) Yarn is probably something. Angular is a thing. I don;t know what Yarn does, but Angular makes writing the client easier.
+
+4) The NavBar works as a NavBar, and has a run option. Both the server and Angular are routing.
