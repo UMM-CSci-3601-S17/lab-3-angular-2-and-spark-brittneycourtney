@@ -23,7 +23,6 @@ export class FilterBy implements PipeTransform {
 
         const type = typeof value[key];
         let isMatching;
-
         if (type === 'string') {
           isMatching = this.filterByString(filter[key])(value[key]);
         } else if (type === 'object') {
