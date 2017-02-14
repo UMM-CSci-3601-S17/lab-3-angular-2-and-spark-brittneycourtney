@@ -6,15 +6,15 @@
         <input #input type="text" Placeholder="Filter by Category" [(ngModel)]="searchCategory">
         <input #input type="text" placeholder="Filter by Status (0 or 1)" [(ngModel)]="searchStatus">
         <input #input type="text" Placeholder="Search Body" [(ngModel)]="searchBody">
-        <form id="sort">
-            <input type="radio" id="Sort1" name="sorting" value="Category">Sort by Category<br>
-            <input type="radio" id="Sort2" name="sorting" value="Owner">Sort by Owner<br>
-            <input type="radio" id="Sort3" name="sorting" value="Status">Sort by Status<br>
-            <input type="radio" id="Sort4" name="sorting" value="Body">Sort by Body<br>
+        <form>
+            <input type="radio" id="Sort1" name="sorting" value="Category" [(ngModel)]="filterCategory">Sort by Category<br>
+            <input type="radio" id="Sort2" name="sorting" value="Owner" [(ngModel)]="filterOwner">Sort by Owner<br>
+            <input type="radio" id="Sort3" name="sorting" value="Status" [(ngModel)]="filterStatus">Sort by Status<br>
+            <input type="radio" id="Sort4" name="sorting" value="Body" [(ngModel)]="filterBody">Sort by Body<br>
         </form>
     </li>
     <li class="list-group-item list-group-item-info">Todos</li>
-    <li *ngFor="let todo of todos | async | sortBy: {todos: sort.value} |filterBy: {owner: searchOwner} | filterBy: {category: searchCategory} | filterBy: {body: searchBody} | filterBy: {status: searchStatus} | filterBy: {_id: searchID}" class="list-group-item">
+    <li *ngFor="let todo of todos | async | sortBy: {todos: filterOwner }|filterBy: {owner: searchOwner} | filterBy: {category: searchCategory} | filterBy: {body: searchBody} | filterBy: {status: searchStatus} | filterBy: {_id: searchID}" class="list-group-item">
         {{"Owner: " + todo.owner}} <br>
         {{"ID: " +  todo._id}} <br>
         {{"Category: " + todo.category}} <br>

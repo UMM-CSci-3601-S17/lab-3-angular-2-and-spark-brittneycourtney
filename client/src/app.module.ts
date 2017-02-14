@@ -11,6 +11,7 @@ import { routing } from './app/app.routes';
 import {FormsModule} from '@angular/forms';
 import {FilterBy} from './app/users/filter.pipe';
 import {TodoComponent} from "./app/todos/todo.component";
+import {sortBy} from './app/todos/sort.pipe';
 
 @NgModule({
     imports: [
@@ -27,7 +28,8 @@ import {TodoComponent} from "./app/todos/todo.component";
         NavbarComponent,
         UserListComponent,
         TodoComponent,
-        FilterBy
+        FilterBy,
+        sortBy
     ],
     bootstrap: [ AppComponent ]
 })
