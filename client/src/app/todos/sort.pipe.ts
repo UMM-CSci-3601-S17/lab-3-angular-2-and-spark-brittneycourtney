@@ -13,15 +13,6 @@ export class sortBy implements PipeTransform{
             return !keyword || value.toLowerCase().indexOf(keyword) !== -1;
         }
     }
-    // private subtractTheThings(a,b){
-    //     if (a-b > 0){
-    //         return 1;
-    //     }else if(a-b < 0){
-    //         return -1;
-    //     }else {
-    //         return 0;
-    //     }
-    // }
 
     transform(array: any[], keyword: string): any {
         if(array==null){
@@ -39,14 +30,7 @@ export class sortBy implements PipeTransform{
 
         return array.sort((todo1, todo2)=>{return todo1 - todo2});
 
-        // if(type == 'object'){
-        //     return array.filter(this.filterByObject(filter));
-        // } else {
-        //     console.log("Unknown filter type???");
-        //     console.log(type);
-        //     console.log(filter);
-        //     return array;
-        // }
+
 
     }
 

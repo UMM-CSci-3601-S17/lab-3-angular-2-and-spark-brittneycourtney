@@ -1,20 +1,21 @@
 
 <ul class="list-group">
     <li class="list-group-item list-group-item-info">
-        <input #input type="text" placeholder="Search by ID" [(ngModel)]="searchID">
-        <input #input type="text" placeholder="Filter by Owner" [(ngModel)]="searchOwner">
-        <input #input type="text" Placeholder="Filter by Category" [(ngModel)]="searchCategory">
-        <input #input type="text" placeholder="Filter by Status (0 or 1)" [(ngModel)]="searchStatus">
-        <input #input type="text" Placeholder="Search Body" [(ngModel)]="searchBody">
-        <form>
-            <input type="radio" id="Sort1" name="sorting" value="Category" [(ngModel)]="filterCategory">Sort by Category<br>
-            <input type="radio" id="Sort2" name="sorting" value="Owner" [(ngModel)]="filterOwner">Sort by Owner<br>
-            <input type="radio" id="Sort3" name="sorting" value="Status" [(ngModel)]="filterStatus">Sort by Status<br>
-            <input type="radio" id="Sort4" name="sorting" value="Body" [(ngModel)]="filterBody">Sort by Body<br>
-        </form>
+        <!--<input #input type="text" placeholder="Search by ID" [(ngModel)]="searchID">-->
+        <!--<input #input type="text" placeholder="Filter by Owner" [(ngModel)]="searchOwner">-->
+        <!--<input #input type="text" Placeholder="Filter by Category" [(ngModel)]="searchCategory">-->
+        <!--<input #input type="text" placeholder="Filter by Status (0 or 1)" [(ngModel)]="searchStatus">-->
+        <!--<input #input type="text" Placeholder="Search Body" [(ngModel)]="searchBody">-->
+        <input #input type="text" placeholder="Search by ID" (input)="searchID = $event.target.value">
+        <input #input type="text" placeholder="Filter by Owner" (input)="searchOwner = $event.target.value">
+        <input #input type="text" Placeholder="Filter by Category" (input)="searchCategory = $event.target.value">
+        <input #input type="text" placeholder="Filter by Status (0 or 1)" (input)="searchStatus = $event.target.value">
+        <input #input type="text" Placeholder="Search Body" (input)="searchBody = $event.target.value">
+
+
     </li>
     <li class="list-group-item list-group-item-info">Todos</li>
-    <li *ngFor="let todo of todos | async | sortBy: {todos: filterOwner }|filterBy: {owner: searchOwner} | filterBy: {category: searchCategory} | filterBy: {body: searchBody} | filterBy: {status: searchStatus} | filterBy: {_id: searchID}" class="list-group-item">
+    <li *ngFor="let todo of todos  |filterBy: {owner: searchOwner} | filterBy: {category: searchCategory} | filterBy: {body: searchBody} | filterBy: {status: searchStatus} | filterBy: {_id: searchID}" class="list-group-item">
         {{"Owner: " + todo.owner}} <br>
         {{"ID: " +  todo._id}} <br>
         {{"Category: " + todo.category}} <br>
