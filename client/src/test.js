@@ -14,4 +14,7 @@ describe('testing things',function(){
     it('should exist', function(){
         expect(Todos).toBeDefined();
     })
+    it('ought to do things', function(){
+        expect(filterBy(Todos.owner, 'Fry' )).length.toBe(61);
+    })
 })
