@@ -6,7 +6,6 @@ import { TodoService } from "./todo.service";
 import { Todo} from "./todo";
 import { FormsModule } from '@angular/forms';
 import { FilterBy } from "./filter.pipe";
-import {sortBy} from "./sort.pipe";
 
 @Component({
     selector: 'todo-component',
