@@ -7,9 +7,12 @@ import { NavbarComponent } from './app/navbar/navbar.component';
 import { HomeComponent} from './app/home/home.component';
 import { KittensComponent }   from './app/kittens/kittens.component';
 import { UserListComponent } from './app/users/user-list.component';
+import {TodoService} from './app/todos/todo.service';
 import { routing } from './app/app.routes';
 import {FormsModule} from '@angular/forms';
-import {FilterBy} from './app/users/filter.pipe';
+import {TodoComponent} from "./app/todos/todo.component";
+
+import { PipeModule } from './pipe.module';
 
 @NgModule({
     imports: [
@@ -17,7 +20,8 @@ import {FilterBy} from './app/users/filter.pipe';
         HttpModule,
         JsonpModule,
         routing,
-        FormsModule
+        FormsModule,
+        PipeModule
     ],
     declarations: [
         AppComponent,
@@ -25,8 +29,9 @@ import {FilterBy} from './app/users/filter.pipe';
         HomeComponent,
         NavbarComponent,
         UserListComponent,
-        FilterBy
+        TodoComponent
     ],
+    providers: [ TodoService ],
     bootstrap: [ AppComponent ]
 })
 
